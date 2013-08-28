@@ -27,6 +27,15 @@
 # inherit from common msm8960
 -include device/htc/msm8960-common/BoardConfigCommon.mk
 
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT_CPU := cortex-a15
+TARGET_CPU_VARIANT := krait
+TARGET_ARCH_VARIANT_FPU := neon-vfp4
+
 TARGET_SPECIFIC_HEADER_PATH := device/htc/m7-common/include
 
 # Kernel
@@ -36,6 +45,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_CONFIG := cyanogenmod_m7_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
