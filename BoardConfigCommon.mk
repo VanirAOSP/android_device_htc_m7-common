@@ -45,7 +45,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_CONFIG := cyanogenmod_m7_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
+TARGET_GCC_VERSION := 4.7
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
