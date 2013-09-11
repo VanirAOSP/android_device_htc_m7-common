@@ -20,6 +20,7 @@
         <item>LTE/CDMA/EvDo/GSM/WCDMA</item>
         <item>LTE/GSM/WCDMA</item>
         <item>LTE/CDMA/EvDo</item>
+	<item>LTE/CDMA</item>
         <item>CDMA/EvDo auto</item>
         <item>GSM/WCDMA auto</item>
         <item>GSM/WCDMA preferred</item>
@@ -28,6 +29,7 @@
         <item>"10"</item>
         <item>"9"</item>
         <item>"8"</item>
+	<item>"7"</item>
         <item>"4"</item>
         <item>"3"</item>
         <item>"0"</item>
