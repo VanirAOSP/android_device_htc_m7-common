@@ -86,6 +86,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/AudioBTIDnew.csv:system/etc/AudioBTIDnew.csvs \
     $(LOCAL_PATH)/dsp/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3
 
+#IR Support
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/cir.img:system/etc/cir.img \
+    $(LOCAL_PATH)/prebuilt/cir_fw_update:system/bin/cir_fw_update \
+    $(LOCAL_PATH)/prebuilt/CIRModule.apk:system/app/CIRModule.apk \
+    $(LOCAL_PATH)/prebuilt/htcirlibs.jar:system/framework/htcirlibs.jar \
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
