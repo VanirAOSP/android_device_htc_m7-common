@@ -143,10 +143,10 @@ BOARD_SEPOLICY_UNION := \
     zygote.te
 
 # Custom Recovery
-ifneq ($(filter m7att m7tmo m7ul m7vzw,$(TARGET_DEVICE)),)
-TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom
+ifneq ($(filter m7att m7tmo m7ul,$(TARGET_DEVICE)),)
+TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom.gsm
 else
-TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom.spr
+TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom.cdma
 endif
 BOARD_CUSTOM_GRAPHICS := ../../../device/htc/m7-common/recovery/graphics.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
