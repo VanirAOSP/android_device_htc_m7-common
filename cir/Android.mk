@@ -1,5 +1,5 @@
 LOCAL_PATH:=$(call my-dir)
-ifneq ($(filter m7att m7spr m7tmo m7ul,$(TARGET_DEVICE)),)
+ifneq ($(filter m7att m7spr m7tmo m7vzw m7ul,$(TARGET_DEVICE)),)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := htcirlibs
