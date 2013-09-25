@@ -53,8 +53,7 @@ LOCAL_SRC_FILES		:= etc/remount.qcom.cdma
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
-endif
-ifneq ($(filter m7vzw,$(TARGET_DEVICE)),)
+else  # Verizon variant
 
 include $(CLEAR_VARS)
 LOCAL_MODULE		:= fstab.qcom
