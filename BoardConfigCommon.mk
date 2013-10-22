@@ -47,9 +47,6 @@ TARGET_KERNEL_CONFIG := cyanogenmod_m7_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
 
-# Flags
-COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
-
 # Audio
 BOARD_USES_FLUENCE_INCALL := true  # use DMIC in call only
 BOARD_USES_SEPERATED_AUDIO_INPUT := true  # use distinct voice recognition use case
@@ -147,11 +144,11 @@ TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom.spr
 else
 TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom.gsm
 endif
-BOARD_CUSTOM_GRAPHICS := ../../../device/htc/m7-common/recovery/graphics.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_RECOVERY_SWIPE := true
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_USERIMAGES_USE_EXT4 := true
 
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
