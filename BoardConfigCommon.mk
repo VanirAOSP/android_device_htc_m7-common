@@ -34,7 +34,7 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_CPU_VARIANT := krait
-TARGET_ARCH_VARIANT_FPU := neon-vfp4
+TARGET_ARCH_VARIANT_FPU := neon-vfpv4
 
 TARGET_SPECIFIC_HEADER_PATH := device/htc/m7-common/include
 
