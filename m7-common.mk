@@ -170,7 +170,7 @@ PRODUCT_PACKAGES += \
     init.rc
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb
+    persist.sys.usb.config=mtp
 
 # Common build properties
 PRODUCT_PROPERTY_OVERRIDES += \
