@@ -39,9 +39,6 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := InSaNiTy_m7_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
 
-# Building recovery is useless for us dont do it
-TARGET_NO_RECOVERY := true
-
 # Audio
 BOARD_USES_FLUENCE_INCALL := true  # use DMIC in call only
 BOARD_USES_SEPERATED_AUDIO_INPUT := true  # use distinct voice recognition use case
