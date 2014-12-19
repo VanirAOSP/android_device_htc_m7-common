@@ -34,7 +34,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 # Kernel
 BOARD_KERNEL_BASE := 0x80600000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := InSaNiTy_m7_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
@@ -91,10 +91,6 @@ BOARD_PROVIDES_LIBRIL := true
 
 BOARD_SEPOLICY_DIRS += \
     device/htc/m7-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    property_contexts \
-    recovery.te
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
