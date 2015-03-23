@@ -184,6 +184,9 @@ on fs
 
     mount_all ./fstab.qcom
 
+    # Enable zRAM
+    swapon_all /fstab.qcom
+
     mkdir /mnt/qcks 0700 root system
     mount tmpfs tmpfs /mnt/qcks size=20m,mode=0750,gid=1000
     mkdir /mnt/efs 0700 root system
@@ -477,13 +480,10 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
-    chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-    chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
-    chown system system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
-    write /sys/module/cpu_boost/parameters/boost_ms 20
+    write /sys/module/cpu_boost/parameters/boost_ms 40
     write /sys/module/cpu_boost/parameters/sync_threshold 1566000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/input_boost_ms 80
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 384000
@@ -561,61 +561,3 @@ on property:sys.boot_completed=1
     # Set performance profile
     setprop sys.perf.profile 1
     start thermald
-    # Set up KSM
-    write /sys/kernel/mm/ksm/deferred_timer 1
-    write /sys/kernel/mm/ksm/pages_to_scan 100
-    write /sys/kernel/mm/ksm/sleep_millisecs 500
-    write /sys/kernel/mm/ksm/run 1
-
-# CM Performance Profiles
-
-# Powersave
-on property:sys.perf.profile=0
-    stop mpdecision
-    write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "conservative"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "conservative"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "conservative"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "conservative"
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor "ondemand"
-    start mpdecision
-
-# Balanced
-on property:sys.perf.profile=1
-    stop mpdecision
-    write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
-    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 4
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 10
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core 70
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential_multi_core 3
-    write /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq 918000
-    write /sys/devices/system/cpu/cpufreq/ondemand/sync_freq 1026000
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load 80
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor "ondemand"
-    start mpdecision
-
-# Performance
-on property:sys.perf.profile=2
-    stop mpdecision
-    write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "performance"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "performance"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "performance"
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor "performance"
