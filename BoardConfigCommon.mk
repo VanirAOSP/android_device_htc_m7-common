@@ -35,7 +35,7 @@ BOARD_HAVE_HTC_CSDCLIENT := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
+BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -60,7 +60,6 @@ AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 
 # General compilation flags
 TARGET_SPECIFIC_HEADER_PATH += device/htc/m7-common/include
-USE_CLANG_PLATFORM_BUILD := true
 
 # Graphics
 HAVE_ADRENO_SOURCE := false
@@ -72,7 +71,6 @@ BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom user_debug=31
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := m7_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/htc/msm8960
 
 # Recovery
